@@ -14,15 +14,15 @@ import NewForm from './components/NewForm'
 function App() {
   return (
     <>
-      <Navbar title="navs" link="HOME" />
-      <div className="container">
+      {/* <Navbar title="navs" link="HOME" /> */}
+      {/* <div className="container">
         <Form title="Input text here" />
       </div>
       <Links link="this is a link" />
       <Counter />
       <Overview />
       <Funclinks />
-      <Test />
+      <Test /> */}
       <NewForm />
     </>
 
