@@ -14,15 +14,7 @@ import NewForm from './components/NewForm'
 function App() {
   return (
     <>
-      {/* <Navbar title="navs" link="HOME" /> */}
-      {/* <div className="container">
-        <Form title="Input text here" />
-      </div>
-      <Links link="this is a link" />
-      <Counter />
-      <Overview />
-      <Funclinks />
-      <Test /> */}
+
       <NewForm />
     </>
 
@@ -30,3 +22,14 @@ function App() {
 }
 
 export default App;
+
+
+{/* <Navbar title="navs" link="HOME" /> */ }
+{/* <div className="container">
+        <Form title="Input text here" />
+      </div>
+      <Links link="this is a link" />
+      <Counter />
+      <Overview />
+      <Funclinks />
+      <Test /> */}
