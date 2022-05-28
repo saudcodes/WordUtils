@@ -1,7 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const NewForm = (props) => {
-    const [text, setText] = useState("default")
+    const [text, setText] = useState("")
+    const [preview, setPreview] = useState(false)
+
+    useEffect(() => {
+        if (preview === true) {
+            setPreview(text)
+        } else {
+            console.log('Count is less that 5');
+        }
+    }, [preview]);
 
     const upperCase = (e) => {
         e.preventDefault()
@@ -9,7 +18,7 @@ const NewForm = (props) => {
         setText(a)
     }
     const lowerCase = (e) => {
-        e.preventDefault()
+        e.preventDefault()s
         let a = text.toLowerCase()
         setText(a)
     }
@@ -20,9 +29,8 @@ const NewForm = (props) => {
     }
     const activateText = (e) => {
         e.preventDefault()
-        let a = text
 
-        console.log(a)
+        setPreview(true)
 
     }
     const handleChange = (event) => {
@@ -34,7 +42,7 @@ const NewForm = (props) => {
     return (
         <>
             <div className="container">
-                <h2>{text}</h2>
+                <h2>{preview}</h2>
                 <form className="was-validated">
                     <div className="mt-5">
                         <label htmlFor="validationTextarea" className="form-label">Textarea</label>
