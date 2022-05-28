@@ -18,7 +18,7 @@ const NewForm = (props) => {
         setText(a)
     }
     const lowerCase = (e) => {
-        e.preventDefault()s
+        e.preventDefault()
         let a = text.toLowerCase()
         setText(a)
     }
