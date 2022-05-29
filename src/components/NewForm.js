@@ -4,13 +4,13 @@ const NewForm = (props) => {
     const [text, setText] = useState("")
     const [preview, setPreview] = useState(false)
 
-    useEffect(() => {
-        if (preview === true) {
-            setPreview(text)
-        } else {
-            console.log('Count is less that 5');
-        }
-    }, [preview]);
+    // useEffect(() => {
+    //     if (preview === true) {
+    //         setPreview(text)
+    //     } else {
+    //         console.log('Count is less that 5');
+    //     }
+    // }, [preview]);
 
     const upperCase = (e) => {
         e.preventDefault()
