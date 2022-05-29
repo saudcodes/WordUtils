@@ -8,14 +8,15 @@ import Overview from './components/Overview';
 import Funclinks from './components/Funclinks';
 import Test from './components/Test';
 import NewForm from './components/NewForm'
+import Dark from './components/Dark';
 
 
 //let name = prompt("What is your name?");
 function App() {
   return (
     <>
-
-      <NewForm />
+      <Dark />
+     
     </>
 
   );
@@ -24,12 +25,13 @@ function App() {
 export default App;
 
 
-{/* <Navbar title="navs" link="HOME" /> */ }
-{/* <div className="container">
+/* <Navbar title="navs" link="HOME" /> */ 
+/* <div className="container">
         <Form title="Input text here" />
       </div>
       <Links link="this is a link" />
       <Counter />
       <Overview />
-      <Funclinks />
-      <Test /> */}
+       // {/* <NewForm /> */
+      // <Funclinks />
+      // <Test /> */
