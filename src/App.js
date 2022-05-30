@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <Dark />
-     
+      <NewForm />
     </>
 
   );
@@ -32,6 +32,6 @@ export default App;
       <Links link="this is a link" />
       <Counter />
       <Overview />
-       // {/* <NewForm /> */
+       // {/* */
       // <Funclinks />
       // <Test /> */
