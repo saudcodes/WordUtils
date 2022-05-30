@@ -2,15 +2,17 @@ import React, { useState, useEffect } from "react";
 
 const NewForm = (props) => {
     const [text, setText] = useState("")
-    const [preview, setPreview] = useState(false)
+    const [preview, setPreview] = useState("")
+    const [isPreviewEnabled, setIsPreviewEnabled] = useState(false)
 
-    // useEffect(() => {
-    //     if (preview === true) {
-    //         setPreview(text)
-    //     } else {
-    //         console.log('Count is less that 5');
-    //     }
-    // }, [preview]);
+
+    useEffect(() => {
+        if (isPreviewEnabled === true) {
+            setPreview(text)
+        } else {
+            console.log('Count is less that 5');
+        }
+    });
 
     const upperCase = (e) => {
         e.preventDefault()
@@ -30,14 +32,16 @@ const NewForm = (props) => {
     const activateText = (e) => {
         e.preventDefault()
 
-        setPreview(true)
-
+        setIsPreviewEnabled(true)
+        console.log(setIsPreviewEnabled)
+        console.log(preview)
     }
     const handleChange = (event) => {
 
         setText(event.target.value)
 
     }
+
 
     return (
         <>
@@ -53,10 +57,10 @@ const NewForm = (props) => {
 
                     </div>
 
-                    <button className="btn btn-primary" onClick={upperCase} type="submit">to uppercase</button>
-                    <button className="btn btn-primary" onClick={lowerCase} type="submit">to lowercase</button>
-                    <button className="btn btn-primary" onClick={capitalize} type="submit">to capitalize</button>
-                    <button className="btn btn-primary" onClick={activateText} type="submit">Preview Text</button>
+                    <button className="btn btn-primary" onClick={upperCase} type="submit">To uppercase</button>
+                    <button className="btn btn-primary" onClick={lowerCase} type="submit">To lowercase</button>
+                    <button className="btn btn-primary" onClick={capitalize} type="submit">To capitalize</button>
+                    <button className="btn btn-primary" onClick={activateText} type="submit">Enable Text Preview </button>
 
 
                 </form>
