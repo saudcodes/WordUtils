@@ -1,29 +1,35 @@
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export default function Dark(props) {
     const [style, setStyle] = useState({
         color: "black",
-        backgroundColor: `${props.mode}`,
+        backgroundColor: "white",
     })
 
     const [btnText, setBtnText] = useState("Enable Dark Mode")
 
-    const handleDark = () => {
-        setBtnText("Enable Light Mode")
-        if (style.color === "black") {
+
+    useEffect(() => {
+        if (props.mode === "dark") {
             setStyle({
                 color: "white",
                 backgroundColor: "black",
             })
         }
         else {
-            setBtnText("Enable Dark Mode")
+
             setStyle({
                 color: "black",
                 backgroundColor: "white",
             })
         }
+    }, [props.mode]);
+
+
+    const handleDark = () => {
+        setBtnText("Enable Light Mode")
+
     }
 
     return (
@@ -68,7 +74,7 @@ export default function Dark(props) {
                     </div>
                 </div>
                 <button className="btn btn-primary" onClick={handleDark} type="submit">{btnText}</button>
-                <button className="btn btn-primary" onClick={props.toggleBtn} type="submit">TEshhihit</button>
+                <button className="btn btn-primary" onClick={props.toggleBtn} type="submit">teshtttttt</button>
             </div>
         </>
     )
