@@ -9,13 +9,24 @@ import Funclinks from './components/Funclinks';
 import Test from './components/Test';
 import NewForm from './components/NewForm'
 import Dark from './components/Dark';
+import { useState } from 'react';
 
 
 //let name = prompt("What is your name?");
 function App() {
+  const [modeEnabled, setModeEnabled] = useState("blue")
+  
+  const toggleBtn = () => {
+    setModeEnabled("red")
+document.body.style.backgroundColor = "black"
+
+    console.log(modeEnabled)
+    
+
+  }
   return (
     <>
-      <Dark />
+      <Dark mode="blue" toggleBtn={toggleBtn}/>
       <NewForm />
     </>
 

@@ -4,15 +4,14 @@ const NewForm = (props) => {
     const [text, setText] = useState("")
     const [preview, setPreview] = useState("")
     const [isPreviewEnabled, setIsPreviewEnabled] = useState(false)
+    const [btnPreview, setBtnPreview] = useState("Enable Dark Mode")
 
 
     useEffect(() => {
         if (isPreviewEnabled === true) {
             setPreview(text)
-        } else {
-            console.log('Count is less that 5');
         }
-    });
+    }, [isPreviewEnabled, text]);
 
     const upperCase = (e) => {
         e.preventDefault()
@@ -31,10 +30,12 @@ const NewForm = (props) => {
     }
     const activateText = (e) => {
         e.preventDefault()
-
         setIsPreviewEnabled(true)
-        console.log(setIsPreviewEnabled)
-        console.log(preview)
+        if (setIsPreviewEnabled === true) {
+            setBtnPreview("Disable")
+        }
+        setIsPreviewEnabled(true)
+
     }
     const handleChange = (event) => {
 
@@ -45,8 +46,8 @@ const NewForm = (props) => {
 
     return (
         <>
-            <div className="container">
-                <h2>{preview}</h2>
+            <div className="container ">
+
                 <form className="was-validated">
                     <div className="mt-5">
                         <label htmlFor="validationTextarea" className="form-label">Textarea</label>
@@ -57,13 +58,17 @@ const NewForm = (props) => {
 
                     </div>
 
-                    <button className="btn btn-primary" onClick={upperCase} type="submit">To uppercase</button>
-                    <button className="btn btn-primary" onClick={lowerCase} type="submit">To lowercase</button>
-                    <button className="btn btn-primary" onClick={capitalize} type="submit">To capitalize</button>
-                    <button className="btn btn-primary" onClick={activateText} type="submit">Enable Text Preview </button>
+                    <button className="btn mx-2 btn-primary" onClick={upperCase} type="submit">To uppercase</button>
+                    <button className="btn mx-2 btn-primary" onClick={lowerCase} type="submit">To lowercase</button>
+                    <button className="btn mx-2 btn-primary" onClick={capitalize} type="submit">To capitalize</button>
+                    <button className="btn mx-2 btn-primary" onClick={activateText} type="submit">{btnPreview} </button>
 
 
                 </form>
+                <div style={{ height: "60vh", }} className="container border border-3 mt-5 border-primary">
+                    <h4>Preview</h4>
+                    <p >{preview}</p>
+                </div>
             </div>
         </>
     )
