@@ -14,19 +14,25 @@ import { useState } from 'react';
 
 //let name = prompt("What is your name?");
 function App() {
-  const [modeEnabled, setModeEnabled] = useState("blue")
+  const [modeEnabled, setModeEnabled] = useState("light")
   
   const toggleBtn = () => {
-    setModeEnabled("red")
+    if (modeEnabled === "light"){
+    setModeEnabled("dark")
 document.body.style.backgroundColor = "black"
 
-    console.log(modeEnabled)
+    console.log(modeEnabled);
+    }
+    else {
+      setModeEnabled("light")
+      document.body.style.backgroundColor = "white"
+    }
     
 
   }
   return (
     <>
-      <Dark mode="blue" toggleBtn={toggleBtn}/>
+      <Dark mode={modeEnabled} toggleBtn={toggleBtn}/>
       <NewForm />
     </>
 
