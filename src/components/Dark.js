@@ -31,11 +31,14 @@ export default function Dark(props) {
         setBtnText("Enable Light Mode")
 
     }
+    const test = () => {
+        console.log(props.mode)
+    }
 
     return (
         <>
             <div className="container mt-5">
-                <div className="accordion" id="accordionExample" >
+                <div className="accordion  " style={{ border: "2px solid ", color: props.mode === "dark" ? "red " : "blue", boxShadow: " 120px 80px 40px 20px #0ffs" }} id="accordionExample" >
                     <div className="accordion-item" style={style}>
                         <h2 className="accordion-header" id="headingOne">
                             <button className="accordion-button" style={style} type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -75,6 +78,7 @@ export default function Dark(props) {
                 </div>
                 <button className="btn btn-primary" onClick={handleDark} type="submit">{btnText}</button>
                 <button className="btn btn-primary" onClick={props.toggleBtn} type="submit">teshtttttt</button>
+                <button onClick={test}>log</button>
             </div>
         </>
     )

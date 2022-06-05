@@ -33,7 +33,7 @@ document.body.style.backgroundColor = "black"
   return (
     <>
       <Dark mode={modeEnabled} toggleBtn={toggleBtn}/>
-      <NewForm />
+      <NewForm new={modeEnabled} />
     </>
 
   );
