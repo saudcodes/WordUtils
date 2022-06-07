@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Navbar(props) {
+  const [style, setStyle] = useState({ background: "red" })
+  // const newJ = setStyle({ background: "red" });
+
+  // useEffect(() => {
+  //   if (props.glow === "dark") {
+  //     setStyle({
+  //       background: "linear-gradient(15deg, #13547a 0%, #80d0c7 100%)", boxShadow: "0px -12px 55px  #0ff",
+  //     })
+  //   }
+
+
+  // }, [props.glow])
   return (
+
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav style={style} className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">{props.title}</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

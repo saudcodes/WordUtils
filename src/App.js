@@ -32,6 +32,7 @@ document.body.style.backgroundColor = "black"
   }
   return (
     <>
+      <Navbar title="navs" link="HOME" glow={modeEnabled} />
       <Dark mode={modeEnabled} toggleBtn={toggleBtn}/>
       <NewForm new={modeEnabled} />
     </>
@@ -42,7 +43,7 @@ document.body.style.backgroundColor = "black"
 export default App;
 
 
-/* <Navbar title="navs" link="HOME" /> */ 
+/*  */ 
 /* <div className="container">
         <Form title="Input text here" />
       </div>

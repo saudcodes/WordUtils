@@ -16,6 +16,7 @@ export default function Dark(props) {
                 color: "white",
                 backgroundColor: "black",
             })
+            setBtnText("Enable Light Mdor")
         }
         else {
 
@@ -23,17 +24,11 @@ export default function Dark(props) {
                 color: "black",
                 backgroundColor: "white",
             })
+            setBtnText("Enable Dark Mode")
         }
     }, [props.mode]);
 
 
-    const handleDark = () => {
-        setBtnText("Enable Light Mode")
-
-    }
-    const test = () => {
-        console.log(props.mode)
-    }
 
     return (
         <>
@@ -76,9 +71,9 @@ export default function Dark(props) {
                         </div>
                     </div>
                 </div>
-                <button className="btn btn-primary" onClick={handleDark} type="submit">{btnText}</button>
-                <button className="btn btn-primary" onClick={props.toggleBtn} type="submit">teshtttttt</button>
-                <button onClick={test}>log</button>
+
+
+                <button className="btn btn-primary" onClick={props.toggleBtn} type="submit">{btnText}</button>
             </div>
         </>
     )

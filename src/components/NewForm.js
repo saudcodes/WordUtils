@@ -42,9 +42,6 @@ const NewForm = (props) => {
 
     }
 
-    const test = () => {
-        console.log(props.new)
-    }
     return (
         <>
             <div className="container ">
@@ -61,12 +58,12 @@ const NewForm = (props) => {
 
                     <button className="btn mx-2 btn-primary" onClick={upperCase} type="submit">To uppercase</button>
                     <button className="btn mx-2 btn-primary" onClick={lowerCase} type="submit">To lowercase</button>
-                    <button className="btn mx-2 btn-primary" onClick={test} type="submit">To capitalize</button>
+                    <button className="btn mx-2 btn-primary" onClick={capitalize} type="submit">To capitalize</button>
                     <button className="btn mx-2 btn-primary" onClick={activateText} type="submit">{btnPreview} </button>
 
 
                 </form>
-                <div style={{ height: "60vh", }} className="container border border-3 mt-5 border-primary">
+                <div style={{ height: "30vh", }} className="container border border-3 mt-5 border-primary">
                     <h4 className={`text-${props.new === "light" ? "dark" : "light"}`}>Preview</h4>
                     <p className={`text-${props.new === "light" ? "dark" : "light"}`}>{isPreviewEnabled === false ? "Enable Preview to view Text" : preview} </p>
                 </div>
