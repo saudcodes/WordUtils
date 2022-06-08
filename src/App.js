@@ -32,9 +32,10 @@ document.body.style.backgroundColor = "black"
   }
   return (
     <>
-      <Navbar title="navs" link="HOME" glow={modeEnabled} />
-      <Dark mode={modeEnabled} toggleBtn={toggleBtn}/>
+      <Navbar title="Words" link="Home" glow={modeEnabled} />
+    
       <NewForm new={modeEnabled} />
+      <Dark mode={modeEnabled} toggleBtn={toggleBtn} />
     </>
 
   );

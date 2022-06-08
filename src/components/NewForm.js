@@ -48,7 +48,8 @@ const NewForm = (props) => {
 
                 <form className="was-validated">
                     <div className="mt-5">
-                        <label htmlFor="validationTextarea" className={`form-label text-${props.new === "light" ? "dark" : "light"}`}>Textarea</label>
+                        <h3 className={`fst-italic text-${props.new === "light" ? "dark" : "light"}`}> {text.length === 0 ? "" : text.length + " charactars " + text.split(" ").length + " words"}</h3>
+                        <label htmlFor="validationTextarea" className={`form-label text-${props.new === "light" ? "dark" : "light"}`}></label>
                         <textarea value={text} onChange={handleChange} className="form-control  is-invalid" rows="4" id="validationTextarea" placeholder="Required example textarea" required></textarea>
                         <div className="invalid-feedback">
                             Please enter a message in the textarea.
@@ -56,7 +57,7 @@ const NewForm = (props) => {
 
                     </div>
 
-                    <button className="btn mx-2 btn-primary" onClick={upperCase} type="submit">To uppercase</button>
+                    <button style={{ border: props.mode === "dark" ? "1px solid white" : "", boxShadow: "0 0 6px 0 rgba(157, 96, 212, 0.5)", borderColor: "linear-gradient(15deg, #13547a 1%, #80d0c7 75%)" }} className="btn mx-2 btn-primary" onClick={upperCase} type="submit">To uppercase</button>
                     <button className="btn mx-2 btn-primary" onClick={lowerCase} type="submit">To lowercase</button>
                     <button className="btn mx-2 btn-primary" onClick={capitalize} type="submit">To capitalize</button>
                     <button className="btn mx-2 btn-primary" onClick={activateText} type="submit">{btnPreview} </button>

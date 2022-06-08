@@ -16,7 +16,7 @@ export default function Dark(props) {
                 color: "white",
                 backgroundColor: "black",
             })
-            setBtnText("Enable Light Mdor")
+            setBtnText("Enable Light Mode")
         }
         else {
 
@@ -32,7 +32,9 @@ export default function Dark(props) {
 
     return (
         <>
+
             <div className="container mt-5">
+                <button className="btn btn-primary" onClick={props.toggleBtn} type="submit">{btnText}</button>
                 <div className="accordion  " style={{ border: "2px solid ", color: props.mode === "dark" ? "red " : "blue", boxShadow: " 120px 80px 40px 20px #0ffs" }} id="accordionExample" >
                     <div className="accordion-item" style={style}>
                         <h2 className="accordion-header" id="headingOne">
@@ -73,7 +75,7 @@ export default function Dark(props) {
                 </div>
 
 
-                <button className="btn btn-primary" onClick={props.toggleBtn} type="submit">{btnText}</button>
+
             </div>
         </>
     )
