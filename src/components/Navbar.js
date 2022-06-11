@@ -52,9 +52,9 @@ export default function Navbar(props) {
                 <a className="nav-link disabled" href="/" tabIndex="-1" aria-disabled="true">Disabled</a>
               </li>
             </ul>
-            <button className="btn btn-primary" type="submit">{btnText}</button>
+            <button className="btn mx-1" type="submit">{btnText}</button>
 
-            <div class="form-check form-switch">
+            <div class="form-check me-5 form-switch">
               <input class="form-check-input w-20 text-danger btn-lg" onClick={props.toggleBtn} type="checkbox" id="flexSwitchCheckDefault" />
               <label class="form-check-label" for="flexSwitchCheckDefault"></label>
             </div>

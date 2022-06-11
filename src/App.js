@@ -17,10 +17,15 @@ import { useState } from 'react';
 function App() {
   const [modeEnabled, setModeEnabled] = useState("light")
   const [alert, setAlert]  = useState(null)
-  const showAlert = (type, msg) => setAlert({
+  const showAlert = (type, msg) => {setAlert({
     type: type,
     message : msg
   })
+
+setTimeout(() => {
+  setAlert(null);
+}, 2000)
+}
   
   const toggleBtn = () => {
     if (modeEnabled === "light"){
