@@ -8,7 +8,7 @@ import Overview from './components/Overview';
 import Funclinks from './components/Funclinks';
 import Test from './components/Test';
 import NewForm from './components/NewForm'
-import Dark from './components/Dark';
+
 import Alert from './components/Alert'; 
 import { useState } from 'react';
 
@@ -42,7 +42,7 @@ showAlert("success", "Dark Mode is Enabled ")
       <Navbar title="Words" toggleBtn={toggleBtn} link="Home" glow={modeEnabled} />
       <Alert alert={alert}/>
       <NewForm showAlert={showAlert} new={modeEnabled} />
-      <Dark mode={modeEnabled}  />
+    
     </>
 
   );
