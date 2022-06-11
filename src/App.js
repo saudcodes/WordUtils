@@ -8,26 +8,46 @@ import Overview from './components/Overview';
 import Funclinks from './components/Funclinks';
 import Test from './components/Test';
 import NewForm from './components/NewForm'
-import Dark from './components/Dark';
+
+import Alert from './components/Alert'; 
 import { useState } from 'react';
 
 
 //let name = prompt("What is your name?");
 function App() {
-  const [modeEnabled, setModeEnabled] = useState("blue")
+  const [modeEnabled, setModeEnabled] = useState("light")
+  const [alert, setAlert]  = useState(null)
+  const showAlert = (type, msg) => {setAlert({
+    type: type,
+    message : msg
+  })
+
+setTimeout(() => {
+  setAlert(null);
+}, 2000)
+}
   
   const toggleBtn = () => {
-    setModeEnabled("red")
+    if (modeEnabled === "light"){
+    setModeEnabled("dark")
 document.body.style.backgroundColor = "black"
+showAlert("success", "Dark Mode is Enabled ")
 
-    console.log(modeEnabled)
+    console.log(modeEnabled);
+    }
+    else {
+      setModeEnabled("light")
+      document.body.style.backgroundColor = "white"
+    }
     
 
   }
   return (
     <>
-      <Dark mode="blue" toggleBtn={toggleBtn}/>
-      <NewForm />
+      <Navbar title="Words" toggleBtn={toggleBtn} link="Home" glow={modeEnabled} />
+      <Alert alert={alert}/>
+      <NewForm showAlert={showAlert} new={modeEnabled} />
+    
     </>
 
   );
@@ -36,7 +56,7 @@ document.body.style.backgroundColor = "black"
 export default App;
 
 
-/* <Navbar title="navs" link="HOME" /> */ 
+/*  */ 
 /* <div className="container">
         <Form title="Input text here" />
       </div>
