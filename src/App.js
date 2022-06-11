@@ -31,7 +31,7 @@ setTimeout(() => {
     if (modeEnabled === "light"){
     setModeEnabled("dark")
 document.body.style.backgroundColor = "black"
-showAlert("success", "Dark Mode is Enabled ")
+showAlert("success", " Wooo Hoooo !!! Dark Mode is Enabled ")
 
     console.log(modeEnabled);
     }
