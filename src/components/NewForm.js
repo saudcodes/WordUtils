@@ -9,6 +9,11 @@ const NewForm = (props) => {
     useEffect(() => {
         if (isPreviewEnabled === true) {
             setPreview(text)
+            setBtnPreview("Disable Preview")
+        }
+        else {
+
+            setBtnPreview("Enable Preview")
         }
     }, [isPreviewEnabled, text]);
 
@@ -22,32 +27,34 @@ const NewForm = (props) => {
         e.preventDefault()
         let a = text.toLowerCase()
         setText(a)
+        props.showAlert("success", " Your Text Has been Lower cased");
     }
     const handleCapitalize = (e) => {
         e.preventDefault()
         let a = text.charAt(0).toUpperCase() + text.slice(1)
         setText(a)
+        props.showAlert("success", " Your Text Has been Capitalized");
     }
     const handleActivateText = (e) => {
         e.preventDefault()
         setIsPreviewEnabled(true)
-        if (setIsPreviewEnabled === true) {
-            setBtnPreview("Disable")
-        }
-        setIsPreviewEnabled(true)
+        if (isPreviewEnabled === true) {
+            setIsPreviewEnabled(false)
 
+            props.showAlert("success", " Text Preview has been Disabled!!!");
+
+
+        }
+        else { props.showAlert("success", " Text Preview has been Enabled!!!"); }
 
     }
     const handleCopyText = (text) => {
         text.preventDefault()
         text = document.getElementById("myTextArea")
         text.select();
-        text.setSelectionRange(0, 99999); /* For mobile devices */
-
-        /* Copy the text inside the text field */
+        text.setSelectionRange(0, 99999);
         navigator.clipboard.writeText(text.value);
 
-        /* Alert the copied text */
         props.showAlert("success", " Your Text Has been Copied");
 
     }
