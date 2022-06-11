@@ -9,17 +9,24 @@ import Funclinks from './components/Funclinks';
 import Test from './components/Test';
 import NewForm from './components/NewForm'
 import Dark from './components/Dark';
+import Alert from './components/Alert'; 
 import { useState } from 'react';
 
 
 //let name = prompt("What is your name?");
 function App() {
   const [modeEnabled, setModeEnabled] = useState("light")
+  const [alert, setAlert]  = useState(null)
+  const showAlert = (type, msg) => setAlert({
+    type: type,
+    message : msg
+  })
   
   const toggleBtn = () => {
     if (modeEnabled === "light"){
     setModeEnabled("dark")
 document.body.style.backgroundColor = "black"
+showAlert("success", "Dark Mode is Enabled ")
 
     console.log(modeEnabled);
     }
@@ -32,10 +39,10 @@ document.body.style.backgroundColor = "black"
   }
   return (
     <>
-      <Navbar title="Words" link="Home" glow={modeEnabled} />
-    
-      <NewForm new={modeEnabled} />
-      <Dark mode={modeEnabled} toggleBtn={toggleBtn} />
+      <Navbar title="Words" toggleBtn={toggleBtn} link="Home" glow={modeEnabled} />
+      <Alert alert={alert}/>
+      <NewForm showAlert={showAlert} new={modeEnabled} />
+      <Dark mode={modeEnabled}  />
     </>
 
   );
