@@ -3,23 +3,23 @@ import React, { useState, useEffect } from "react";
 export default function Navbar(props) {
   const [style, setStyle] = useState({})
 
-  const [btnText, setBtnText] = useState("Enable Dark Mode")
+
 
   useEffect(() => {
-    if (props.glow === "dark") {
+    if (props.mode === "dark") {
       setStyle({
         background: "linear-gradient(15deg, #13547a 1%, #80d0c7 75%)", boxShadow: "0px -12px 55px  #0ff", a: "white",
       })
-      setBtnText("Enable Light Mode")
+
     }
     else {
       setStyle({
         background: "#ebe8e1"
       })
-      setBtnText("Enable Dark Mode")
+
     }
 
-  }, [props.glow])
+  }, [props.mode])
   return (
 
     <>
@@ -37,7 +37,7 @@ export default function Navbar(props) {
 
 
             </ul>
-            <button className="btn mx-1" type="submit">{btnText}</button>
+            <button className="btn mx-1" type="submit">{props.mode === "dark" ? "Enable Light mode" : " Enable Dark mode"}</button>
 
             <div class="form-check me-5 form-switch">
               <input class="form-check-input w-20 text-danger btn-lg" onClick={props.toggleBtn} type="checkbox" id="flexSwitchCheckDefault" />

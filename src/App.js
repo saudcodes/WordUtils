@@ -44,9 +44,9 @@ showAlert("success", " Wooo Hoooo !!! Dark Mode is Enabled ")
   }
   return (
     <>
-      <Navbar title="Words" toggleBtn={toggleBtn} link="Home" glow={modeEnabled} />
+      <Navbar title="Words" toggleBtn={toggleBtn} link="Home" mode={modeEnabled} />
       <Alert alert={alert}/>
-      <NewForm showAlert={showAlert} new={modeEnabled} />
+      <NewForm showAlert={showAlert} mode={modeEnabled} />
     
     </>
 
