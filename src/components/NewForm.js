@@ -11,22 +11,19 @@ const NewForm = (props) => {
             setPreview(text)
 
         }
-        else {
 
-
-        }
     }, [isPreviewEnabled, text]);
 
     const handleUpperCase = (e) => {
         e.preventDefault()
-        let a = text.toUpperCase()
-        setText(a)
-        props.showAlert("success", " Your Text Has been Copied");
+        let upperCased = text.toUpperCase()
+        setText(upperCased)
+        props.showAlert("success", " Your Text Has been Upper cased");
     }
     const handleLowerCase = (e) => {
         e.preventDefault()
-        let a = text.toLowerCase()
-        setText(a)
+        let lowerCased = text.toLowerCase()
+        setText(lowerCased)
         props.showAlert("success", " Your Text Has been Lower cased");
     }
     const handleCapitalize = (e) => {
@@ -95,6 +92,7 @@ const NewForm = (props) => {
                     <p className={`text-${props.mode === "light" ? "dark" : "light"} fs-5`}>{isPreviewEnabled === false ? "Enable Preview to view Text" : preview} </p>
                 </div>
             </div>
+
         </>
     )
 
