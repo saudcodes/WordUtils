@@ -1,25 +1,52 @@
 import React, { useState, useEffect } from "react";
 
 export default function Navbar(props) {
-  const [style, setStyle] = useState({})
+  const [style, setStyle] = useState({ background: "white" })
+
+
+  let color;
+
 
 
 
   useEffect(() => {
     if (props.mode === "dark") {
       setStyle({
-        background: "linear-gradient(15deg, #13547a 1%, #80d0c7 75%)", boxShadow: "0px -12px 55px  #0ff", a: "white",
+        background: "linear-gradient(15deg, #13547a 1%, #80d0c7 75%)", boxShadow: "0px -12px 55px  #0ff",
       })
 
     }
     else {
       setStyle({
-        background: "#ebe8e1"
+        background: color,
       })
 
     }
 
-  }, [props.mode])
+  }, [props.mode, color])
+
+
+
+
+  const handleChange = (event) => {
+
+
+    color = event.target.value
+
+    setStyle({
+      background: color
+
+    })
+
+
+  }
+
+
+
+
+  function clicktest(params) {
+    console.log(style)
+  }
   return (
 
     <>
@@ -37,11 +64,14 @@ export default function Navbar(props) {
 
 
             </ul>
-            <button className="btn mx-1" type="submit">{props.mode === "dark" ? "Enable Light mode" : " Enable Dark mode"}</button>
+            <button onClick={clicktest} className="btn-primary">click</button>
 
-            <div class="form-check me-5 form-switch">
-              <input class="form-check-input w-20 text-danger btn-lg" onClick={props.toggleBtn} type="checkbox" id="flexSwitchCheckDefault" />
-              <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+            <button className="btn mx-2 "> Select Color<input id="colorpicker"
+              style={{ width: "25px", height: " 15px", border: " none" }} type="color" onChange={handleChange} /></button>
+            <button className="btn mx-1" type="submit">{props.mode === "dark" ? "Enable Light mode" : " Enable Dark mode"}</button>
+            <div className="form-check me-5 form-switch">
+              <input className="form-check-input w-20 text-danger btn-lg" onClick={props.toggleBtn} type="checkbox" id="flexSwitchCheckDefault" />
+              <label className="form-check-label" for="flexSwitchCheckDefault"></label>
             </div>
           </div>
         </div>
