@@ -28,7 +28,7 @@ const NewForm = (props) => {
     }
     const handleCapitalize = (e) => {
         e.preventDefault()
-        let a = text.charAt(0).toUpperCase() + text.slice(1)
+        let a = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()
         setText(a)
         props.showAlert("success", " Your Text Has been Capitalized");
     }

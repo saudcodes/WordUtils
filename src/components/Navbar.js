@@ -41,8 +41,12 @@ export default function Navbar(props) {
 
   }
 
+  function autoClick() {
+    if (props.mode === "light") {
+      document.getElementById("flexSwitchCheckDefault").click();
 
-
+    }
+  }
 
   function clicktest(params) {
     console.log(style)
@@ -67,11 +71,13 @@ export default function Navbar(props) {
             <button onClick={clicktest} className="btn-primary">click</button>
 
             <button className="btn mx-2 "> Select Color<input id="colorpicker"
-              style={{ width: "25px", height: " 15px", border: " none" }} type="color" onChange={handleChange} /></button>
+              style={{ width: "25px", height: " 15px", border: " none" }} type="color" onClick={autoClick} onChange={handleChange} /></button>
             <button className="btn mx-1" type="submit">{props.mode === "dark" ? "Enable Light mode" : " Enable Dark mode"}</button>
             <div className="form-check me-5 form-switch">
+
+
               <input className="form-check-input w-20 text-danger btn-lg" onClick={props.toggleBtn} type="checkbox" id="flexSwitchCheckDefault" />
-              <label className="form-check-label" for="flexSwitchCheckDefault"></label>
+              <label className="form-check-label" htmlFor="flexSwitchCheckDefault"></label>
             </div>
           </div>
         </div>
