@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 export default function Navbar(props) {
   const [style, setStyle] = useState({ background: "white" })
 
-
   let color;
 
 
@@ -11,35 +10,39 @@ export default function Navbar(props) {
 
   useEffect(() => {
     if (props.mode === "dark") {
-      setStyle({
-        background: "linear-gradient(15deg, #13547a 1%, #80d0c7 75%)", boxShadow: "0px -12px 55px  #0ff",
-      })
+      setStyle(
+        props.newtest
+      )
+
+
+      console.log(style)
 
     }
     else {
-      setStyle({
-        background: color,
-      })
+      setStyle(
+        { background: "white", }
+
+      )
 
     }
 
-  }, [props.mode, color])
+  }, [props.mode, color, props.newtest, style])
 
 
 
 
-  const handleChange = (event) => {
+  // const handleChange = (event) => {
 
 
-    color = event.target.value
+  //   color = event.target.value
 
-    setStyle({
-      background: color
+  //   setStyle({
+  //     background: color
 
-    })
+  //   })
 
 
-  }
+
 
   function autoClick() {
     if (props.mode === "light") {
@@ -48,9 +51,7 @@ export default function Navbar(props) {
     }
   }
 
-  function clicktest(params) {
-    console.log(style)
-  }
+
   return (
 
     <>
@@ -68,10 +69,9 @@ export default function Navbar(props) {
 
 
             </ul>
-            <button onClick={clicktest} className="btn-primary">click</button>
 
             <button className="btn mx-2 "> Select Color<input id="colorpicker"
-              style={{ width: "25px", height: " 15px", border: " none" }} type="color" onClick={autoClick} onChange={handleChange} /></button>
+              style={{ width: "25px", height: " 15px", border: " none" }} type="color" onClick={autoClick} onChange={props.switchColor} /></button>
             <button className="btn mx-1" type="submit">{props.mode === "dark" ? "Enable Light mode" : " Enable Dark mode"}</button>
             <div className="form-check me-5 form-switch">
 
@@ -89,5 +89,6 @@ export default function Navbar(props) {
 
 Navbar.defaultProps = {
   title: "SAUD",
-  link: "Homepage"
+  link: "Homepage",
+
 }

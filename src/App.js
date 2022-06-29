@@ -17,7 +17,7 @@ import { useState } from 'react';
 function App() {
   const [modeEnabled, setModeEnabled] = useState("light")
   const [alert, setAlert]  = useState(null)
-  const [customColor, setCustomColor] = useState(null)
+  const [myColor, setMyColor] = useState(null)
   const showAlert = (type, msg) => {setAlert({
     type: type,
     message : msg
@@ -33,6 +33,8 @@ setTimeout(() => {
     if (modeEnabled === "light"){
     setModeEnabled("dark")
 document.body.style.backgroundColor = "black"
+     setMyColor( { background: "linear-gradient(15deg, #13547a 1%, #80d0c7 75%)",  })
+
 showAlert("success", " Wooo Hoooo !!! Dark Mode is Enabled ")
 
     console.log(modeEnabled);
@@ -44,11 +46,21 @@ showAlert("success", " Wooo Hoooo !!! Dark Mode is Enabled ")
     
 
   }
+  const handleChange = (event) => {
+    let ncolor = event.target.value
+  
+    setMyColor({
+ backgroundColor: ncolor
+})
+
+  }
+
   return (
     <>
-      <Navbar title="Words" toggleBtn={toggleBtn} link="Home" mode={modeEnabled} />
+    
+      <Navbar newtest={myColor} title="Words" toggleBtn={toggleBtn} myColor={myColor} switchColor={handleChange} link="Home" mode={modeEnabled} />
       <Alert alert={alert}/>
-      <NewForm showAlert={showAlert} mode={modeEnabled} />
+      <NewForm myColor={myColor} showAlert={showAlert} mode={modeEnabled} />
     
     </>
 

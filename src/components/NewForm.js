@@ -78,11 +78,11 @@ const NewForm = (props) => {
 
                     </div>
                     <div className="container my-3 buttons">
-                        <button className="btn mx-2 btn-primary" onClick={handleUpperCase} type="submit">To uppercase</button>
-                        <button className="btn mx-2 btn-primary" onClick={handleLowerCase} type="submit">To lowercase</button>
-                        <button className="btn mx-2 btn-primary" onClick={handleCapitalize} type="submit">To capitalize</button>
-                        <button className="btn mx-2 btn-primary" onClick={handleActivateText} type="submit">{isPreviewEnabled === false ? "Enable Preview" : " Disable Preview"} </button>
-                        <button className="btn mx-2 btn-primary" onClick={handleCopyText} type="submit">Copy </button>
+                        <button style={props.myColor} className="btn mx-2  btn-primary" onClick={handleUpperCase} type="submit">To uppercase</button>
+                        <button style={props.myColor} className="btn mx-2 btn-primary" onClick={handleLowerCase} type="submit">To lowercase</button>
+                        <button style={props.myColor} className="btn mx-2 btn-primary" onClick={handleCapitalize} type="submit">To capitalize</button>
+                        <button style={props.myColor} className="btn mx-2 btn-primary" onClick={handleActivateText} type="submit">{isPreviewEnabled === false ? "Enable Preview" : " Disable Preview"} </button>
+                        <button style={props.myColor} className="btn mx-2 btn-primary" onClick={handleCopyText} type="submit">Copy </button>
                     </div>
 
 
@@ -90,6 +90,7 @@ const NewForm = (props) => {
                 <div style={{ height: "20vh", overflow: "auto", }} className="container testing border border-3 mt-5 border-primary">
                     <h4 className={`text-${props.mode === "light" ? "dark" : "light"} text-decoration-underline fst-italic`}>Preview</h4>
                     <p className={`text-${props.mode === "light" ? "dark" : "light"} fs-5`}>{isPreviewEnabled === false ? "Enable Preview to view Text" : preview} </p>
+                    <p style={props.myColor}>xxf</p>
                 </div>
             </div>
 
