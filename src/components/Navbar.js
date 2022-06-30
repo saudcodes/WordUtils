@@ -3,19 +3,12 @@ import React, { useState, useEffect } from "react";
 export default function Navbar(props) {
   const [style, setStyle] = useState({ background: "white" })
 
-  let color;
-
-
-
 
   useEffect(() => {
     if (props.mode === "dark") {
       setStyle(
-        props.newtest
+        props.newColor
       )
-
-
-      console.log(style)
 
     }
     else {
@@ -26,22 +19,7 @@ export default function Navbar(props) {
 
     }
 
-  }, [props.mode, color, props.newtest, style])
-
-
-
-
-  // const handleChange = (event) => {
-
-
-  //   color = event.target.value
-
-  //   setStyle({
-  //     background: color
-
-  //   })
-
-
+  }, [props.mode, props.newColor])
 
 
   function autoClick() {
