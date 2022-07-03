@@ -1,25 +1,35 @@
 import React, { useState, useEffect } from "react";
 
 export default function Navbar(props) {
-  const [style, setStyle] = useState({})
+  const [style, setStyle] = useState({ background: "white" })
 
-  const [btnText, setBtnText] = useState("Enable Dark Mode")
 
   useEffect(() => {
-    if (props.glow === "dark") {
-      setStyle({
-        background: "linear-gradient(15deg, #13547a 1%, #80d0c7 75%)", boxShadow: "0px -12px 55px  #0ff", a: "white",
-      })
-      setBtnText("Enable Light Mode")
+    if (props.mode === "dark") {
+      setStyle(
+        props.newColor
+      )
+
     }
     else {
-      setStyle({
-        background: "#ebe8e1"
-      })
-      setBtnText("Enable Dark Mode")
+      setStyle(
+        { background: "white", }
+
+      )
+
     }
 
-  }, [props.glow])
+  }, [props.mode, props.newColor])
+
+
+  function autoClick() {
+    if (props.mode === "light") {
+      document.getElementById("flexSwitchCheckDefault").click();
+
+    }
+  }
+
+
   return (
 
     <>
@@ -34,29 +44,18 @@ export default function Navbar(props) {
               <li className="nav-item">
                 <a className="nav-link text-dark active" aria-current="page" href="/">{props.link}</a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/">Link</a>
-              </li>
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a className="dropdown-item" href="/">Action</a></li>
-                  <li><a className="dropdown-item" href="/">Another action</a></li>
-                  <li><hr className="dropdown-divider" /></li>
-                  <li><a className="dropdown-item" href="/">Something else here</a></li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link disabled" href="/" tabIndex="-1" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-            <button className="btn mx-1" type="submit">{btnText}</button>
 
-            <div class="form-check me-5 form-switch">
-              <input class="form-check-input w-20 text-danger btn-lg" onClick={props.toggleBtn} type="checkbox" id="flexSwitchCheckDefault" />
-              <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+
+            </ul>
+
+            <button className="btn mx-2 "> Select Color<input id="colorpicker"
+              style={{ width: "25px", height: " 15px", border: " none" }} type="color" onClick={autoClick} onChange={props.switchColor} /></button>
+            <button className="btn mx-1" type="submit">{props.mode === "dark" ? "Enable Light mode" : " Enable Dark mode"}</button>
+            <div className="form-check me-5 form-switch">
+
+
+              <input className="form-check-input w-20 text-danger btn-lg" onClick={props.toggleBtn} type="checkbox" id="flexSwitchCheckDefault" />
+              <label className="form-check-label" htmlFor="flexSwitchCheckDefault"></label>
             </div>
           </div>
         </div>
@@ -68,5 +67,6 @@ export default function Navbar(props) {
 
 Navbar.defaultProps = {
   title: "SAUD",
-  link: "Homepage"
+  link: "Homepage",
+
 }
