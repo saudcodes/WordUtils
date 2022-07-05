@@ -52,7 +52,7 @@ function App() {
     <>
 
       <Navbar newColor={newColor} title="Words" toggleBtn={toggleBtn} myColor={newColor} switchColor={handleChange} link="Home" mode={modeEnabled} />
-      <Alert alert={alert} />
+      <Alert className="fix-alert" alert={alert} />
       <NewForm myColor={newColor} showAlert={showAlert} mode={modeEnabled} />
 
     </>
