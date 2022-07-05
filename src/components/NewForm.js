@@ -3,11 +3,11 @@ import React, { useState, useEffect } from "react";
 const NewForm = (props) => {
     const [text, setText] = useState("")
     const [preview, setPreview] = useState("")
-    const [isPreviewEnabled, setIsPreviewEnabled] = useState(false)
+    // const [isPreviewEnabled, setIsPreviewEnabled] = useState(false)
 
 
     useEffect(() => {
-        if (isPreviewEnabled === true) {
+        if (text !== "") {
             setPreview(text)
 
         }
