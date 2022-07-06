@@ -12,7 +12,7 @@ const NewForm = (props) => {
 
         }
 
-    }, [isPreviewEnabled, text]);
+    }, [text]);
 
     const handleUpperCase = (e) => {
         e.preventDefault()
@@ -47,12 +47,13 @@ const NewForm = (props) => {
     // }
     const handleCopyText = (text) => {
         text.preventDefault()
-        text = document.getElementById("myTextArea")
+        text = document.getElementById("myPreviewArea")
         text.select();
         text.setSelectionRange(0, 99999);
         navigator.clipboard.writeText(text.value);
 
         props.showAlert("success", " Your Text Has been Copied");
+
 
     }
     const handleChange = (event) => {
@@ -89,8 +90,8 @@ const NewForm = (props) => {
                 </form>
                 <div style={{ height: "20vh", overflow: "auto", }} className="container testing border border-3 mt-5 border-primary">
                     <h4 className={`text-${props.mode === "light" ? "dark" : "light"} text-decoration-underline fst-italic`}>Preview</h4>
-                    <p className={`text-${props.mode === "light" ? "dark" : "light"} fs-5`}>{preview} </p>
-
+                    {/* <p className={`text-${props.mode === "light" ? "dark" : "light"} fs-5`}>{preview} </p> */}
+                    <input id="myPreviewArea" style={{ background: "transparent", outline: "none", width: "100%", height: "auto", border: "none" }} className={`text-${props.mode === "light" ? "dark" : "light"} fs-5`} type="text" value={preview} />
                 </div>
             </div>
 
