@@ -70,7 +70,7 @@ const NewForm = (props) => {
 
                 <form className="was-validated">
                     <div className="mt-5">
-                        <h3 className={`fst-italic text-${props.mode === "light" ? "dark" : "light"}`}> {text.length === 0 ? "" : text.length + " charactars " + text.split(" ").length + " words"}</h3>
+                        <h3 className={`fst-italic text-${props.mode === "light" ? "dark" : "light"}`}> {text.length === 0 ? "" : text.length + " charactars " + text.split(" ").filter((element) => { return element.length !== 0 }).length + " words"}</h3>
                         <label htmlFor="validationTextarea" className={`form-label text-${props.mode === "light" ? "dark" : "light"}`}></label>
                         <textarea onChange={handleChange} className="form-control  is-invalid" rows="4" id="myTextArea" placeholder="Required example textarea" required></textarea>
                         <div className="invalid-feedback my-1">
