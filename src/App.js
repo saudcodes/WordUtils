@@ -6,6 +6,8 @@ import Alert from './components/Alert';
 import { useState } from 'react';
 
 
+
+
 function App() {
   const [modeEnabled, setModeEnabled] = useState("light")
   const [alert, setAlert] = useState(null)
@@ -51,7 +53,7 @@ function App() {
   return (
     <>
 
-      <Navbar newColor={newColor} title="Words" toggleBtn={toggleBtn} myColor={newColor} switchColor={handleChange} link="Home" mode={modeEnabled} />
+      <Navbar newColor={newColor} title="WordTools" toggleBtn={toggleBtn} myColor={newColor} switchColor={handleChange} link="Home" mode={modeEnabled} />
       <Alert className="fix-alert" alert={alert} />
       <NewForm myColor={newColor} showAlert={showAlert} mode={modeEnabled} />
 
